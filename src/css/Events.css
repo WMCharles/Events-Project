@@ -55,6 +55,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto auto auto auto;
+    line-height: 2em;
 }
 
 .events div {

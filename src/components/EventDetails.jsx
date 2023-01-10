@@ -3,7 +3,7 @@ import '../css/Details.css'
 
 export default function EventDetails() {
     return (
-        <div className="details">
+        <div className="Details">
             <div className="details-header">
                 <h2>Jan 15</h2>
                 <h1>Surface Water and Ocean Topography (SWOT) Satelite</h1>

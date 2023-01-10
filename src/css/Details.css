@@ -1,0 +1,53 @@
+.details {
+    width: 89%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    line-height: 2em;
+}
+
+.details-header {
+    margin-top: 2em;
+    line-height: 3em;
+}
+
+.details-header h1 {
+    font-size: 2.5rem;
+}
+
+.date-location {
+    margin-top: 1em;
+}
+
+.content {
+    display: flex;
+    margin-top: .5em;
+}
+
+.content > div {
+    width: 20%;
+}
+
+.content > div {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.map-image {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 2px;
+    margin-top: 1.5em;
+}
+
+.map-image > div {
+    height: 400px;
+    background-color: gray;
+}
+
+.details-description {
+    margin-top: 1.5em;
+}
+
+.details-description h1 {
+    margin-bottom: .5em;
+}

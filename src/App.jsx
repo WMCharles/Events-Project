@@ -11,7 +11,7 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='products' element={<Likes />} />
+          <Route path='/favorites' element={<Likes />} />
         </Routes>
       </Router>
     </div>

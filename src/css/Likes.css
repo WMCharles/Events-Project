@@ -1,0 +1,15 @@
+.section {
+    height: 35vh;
+    background-color: gray;
+}
+
+.welcome-message {
+    text-align: center;
+    padding-top: 3em;
+    color: white;
+    font-size: 1.2em;
+}
+
+.welcome-message h1 {
+    margin-bottom: 1em;
+}

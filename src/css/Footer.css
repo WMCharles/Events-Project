@@ -1,0 +1,17 @@
+.footer {
+    background-color: #1406FA;
+    padding-top: 1em;
+    color: white;
+    line-height: 2em;
+}
+
+.footer-details {
+    width: 89%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.copyright {
+    text-align: center;
+}

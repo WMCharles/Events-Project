@@ -14,7 +14,8 @@ export default function NavBar() {
                 <li><HashLink to="/#events-container">Events</HashLink></li>
                 <li><Link to="/favorites">Likes</Link></li>
                 <li><Link to="#">Create Event</Link></li>
-                <li><Link to="#">Logout</Link></li>
+                <li><Link to="/details">Event</Link></li>
+                <li><Link to="#">Login</Link></li>
             </ul>
             <Outlet/>
         </nav>

@@ -1,0 +1,40 @@
+@media only screen and (max-width: 768px) {
+
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* styles for small devices go here */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    /* styles for larger devices go here */
+}
+
+.fa {
+    color: #fff;
+}
+
+#checkout-pagetitle {
+    padding: 20px;
+    border-bottom: 1px solid #000;
+}
+
+.ordersummary-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    font-weight: bold;
+}
+
+.name-input {
+    width: 50%;
+}

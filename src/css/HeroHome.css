@@ -1,6 +1,6 @@
 section {
-    /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp6jv-4skVuc3ploaGiSYW5ky7IOoqxtVsKQ&usqp=CAU') no-repeat; */
-    background-color: gray;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp6jv-4skVuc3ploaGiSYW5ky7IOoqxtVsKQ&usqp=CAU') no-repeat;
+    /* background-color: gray; */
     background-size: cover;
     background-position: center;
     text-align: center;

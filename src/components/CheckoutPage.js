@@ -79,7 +79,6 @@ function CheckoutPage (){
 const  CheckoutPageWrapper = styled.div`
 margin: 25px 200px;
 padding: 20px;
-font-family: poppins;
 `
 
 const NameField = styled.div`
@@ -100,8 +99,5 @@ margin: 50px 0px;
 `
 const ButtonBase = styled.div`
 align-items: center;
-`
-const Name = styled.input`
-width: 40%
 `
 export default CheckoutPage;

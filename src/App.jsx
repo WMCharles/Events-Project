@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <NavBar setUser={setUser}/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/favorites' element={<Likes />} />

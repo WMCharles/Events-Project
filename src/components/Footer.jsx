@@ -3,14 +3,14 @@ import '../css/Footer.css'
 
 export default function Footer() {
     return (
-        <div class="footer">
-            <div class="footer-details">
+        <div className="footer">
+            <div className="footer-details">
                 <div>
                     <h2>Contacts</h2>
-                    <p><span><i class="fa-regular fa-envelope"></i> </span> events.plug@gmail.com</p>
-                    <p><span><i class="fa-brands fa-linkedin"></i> </span> linkedin.com/eventsplug/</p>
-                    <p><span><i class="fa-brands fa-twitter"></i> </span> @eventsplug</p>
-                    <p><span><i class="fa-brands fa-facebook"></i> </span> events.plug</p>
+                    <p><span><i className="fa-regular fa-envelope"></i> </span> events.plug@gmail.com</p>
+                    <p><span><i className="fa-brands fa-linkedin"></i> </span> linkedin.com/eventsplug/</p>
+                    <p><span><i className="fa-brands fa-twitter"></i> </span> @eventsplug</p>
+                    <p><span><i className="fa-brands fa-facebook"></i> </span> events.plug</p>
                 </div>
                 <div>
                     <h2>Features</h2>
@@ -19,8 +19,8 @@ export default function Footer() {
                     <p>Become an Event Holder</p>
                 </div>
             </div>
-            <div class="copyright">
-                <p><span><i class="fa-regular fa-copyright"></i>  </span>2023 Event Plugs</p>
+            <div className="copyright">
+                <p><span><i className="fa-regular fa-copyright"></i>  </span>2023 Event Plugs</p>
             </div>
         </div>
     )

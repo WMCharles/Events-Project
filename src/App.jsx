@@ -11,12 +11,27 @@ import SignupForm from './components/Signup';
 import Auth from './components/Auth';
 
 import "./App.css";
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // auto-login
+    fetch("https://event-plug.onrender.com/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if (!user) return <Auth onLogin={setUser} />;
+
   return (
     <div className="App">
       <Router>
-        <NavBar/>
+        <NavBar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/favorites' element={<Likes />} />

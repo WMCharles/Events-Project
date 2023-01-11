@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Login from './Login'
 import SignupForm from './Signup'
 
-export default function Auth() {
+export default function Auth({onLogin}) {
 
     const [login, setLogin] = useState(true)
 
@@ -13,7 +13,7 @@ export default function Auth() {
 
     return (
         <div>
-            {login ? <Login handleClick={handleClick}  /> : <SignupForm handleClick={handleClick} />}
+            {login ? <Login handleClick={handleClick}  onLogin={onLogin}/> : <SignupForm handleClick={handleClick} onLogin={onLogin}/>}
         </div>
     )
 }

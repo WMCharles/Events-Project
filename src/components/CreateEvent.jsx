@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Event.css';
+import '../css/CreateEvent.css';
 
 const EventForm = () => {
   const [eventTitle, setEventTitle] = useState('');
@@ -52,10 +52,10 @@ const EventForm = () => {
         />
       </div>
       <div>
-      <label>
-        Pricing
-        <input type="text" value={pricing} onChange={e => setPricing(e.target.value)} />
-      </label>
+        <label>
+          Pricing
+          <input type="text" value={pricing} onChange={e => setPricing(e.target.value)} />
+        </label>
       </div>
 
       <div>
@@ -72,38 +72,42 @@ const EventForm = () => {
         </select>
       </div>
       <div className='container'>
-        <div className='date1'>
+        <div className='time'>
           <label htmlFor="eventDate">Start Date</label>
           <input
+            className='time2'
             type="date"
             id="eventDate"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
           />
         </div>
-        <div className='date2'>
+        <div className='time'>
           <label htmlFor="eventDate">End Date</label>
           <input
+            className='time2'
             type="date"
             id="eventDate"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
           />
         </div>
-     
-      
-        <div className='time1'>
+
+
+        <div className='time'>
           <label htmlFor="startTime">Start Time</label>
           <input
+            className='time2'
             type="time"
             id="startTime"
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
           />
         </div>
-        <div className='time2'>
+        <div className='time'>
           <label htmlFor="eventTime">End Time</label>
           <input
+            className='time2'
             type="time"
             id="eventTime"
             value={endTime}
@@ -112,7 +116,7 @@ const EventForm = () => {
         </div>
       </div>
       <div className='btn'>
-      <button type="submit">Create Event</button>
+        <button type="submit">Create Event</button>
       </div>
     </form>
   );

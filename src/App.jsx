@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Likes from './components/Likes';
 import Home from './components/Home';
 import Login from './components/Login';
+import EventPage from './components/CreateEvent';
 import SignupForm from './components/Signup';
 
 import "./App.css";
@@ -22,6 +23,7 @@ function App() {
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignupForm />} />
+          <Route path='/create' element={<EventPage />} />
         </Routes>
         <Footer />
       </Router>

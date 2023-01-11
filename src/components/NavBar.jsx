@@ -13,10 +13,8 @@ export default function NavBar() {
                 <li><Link to="/">Home</Link></li>
                 <li><HashLink to="/#events-container">Events</HashLink></li>
                 <li><Link to="/favorites">Likes</Link></li>
-                <li><Link to="#">Create Event</Link></li>
-                <li><Link to="/details">Event</Link></li>
+                <li><Link to="/create">Create Event</Link></li>
                 <li><Link to="/login">Login</Link></li>
-                <li><Link to="/register">Register</Link></li>
             </ul>
             <Outlet/>
         </nav>

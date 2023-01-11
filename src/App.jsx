@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import EventPage from './components/CreateEvent';
 import SignupForm from './components/Signup';
+import Auth from './components/Auth';
 
 import "./App.css";
 

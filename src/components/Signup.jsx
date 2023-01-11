@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../css/Signup.css';
 // import { Link } from 'react-router-dom';
 
-function SignupForm() {
+function SignupForm({handleClick}) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,7 +48,7 @@ function SignupForm() {
         </label>
         <br />
         <button type="submit">Submit</button>
-        <p>Already have an account? <a href='login'>Login</a></p>
+        <p>Already have an account? <a href='login' onClick={handleClick}>Login</a></p>
       </form>
     </div>
   );

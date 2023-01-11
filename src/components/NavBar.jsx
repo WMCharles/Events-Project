@@ -15,7 +15,7 @@ export default function NavBar() {
                 <li><Link to="/favorites">Likes</Link></li>
                 <li><Link to="#">Create Event</Link></li>
                 <li><Link to="/details">Event</Link></li>
-                <li><Link to="/checkout">Login</Link></li>
+                <li><Link to="#">Login</Link></li>
             </ul>
             <Outlet/>
         </nav>

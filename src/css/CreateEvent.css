@@ -1,0 +1,92 @@
+
+body{
+    background-color: #ccc;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    border:2px solid white;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    margin-top: 20px;
+    width: 80%;
+   padding-left: 5%;
+   padding-bottom: 20px;
+   margin-left: 80px;
+   margin-bottom: 100px;
+    }
+
+    textarea{
+        width: 190%;
+        height: 100%;
+    }
+
+    label {
+        margin-bottom: 0.5rem;
+      }
+
+      select{
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+
+      input {
+        padding: 1%;
+        padding-bottom: 10%;
+        margin-bottom: 6%;
+        border: 1px solid black;
+        border-radius: 4px;
+        width: 220%;
+      }
+      button {
+        background-color: blue;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 300px;
+        height: 35px;
+      }
+
+      .container{
+        display: flex;
+    }
+    .time1{
+        padding-left: 50px;
+    }
+    .time2{
+        padding-left: 50px;
+    }
+    
+    .date2{
+        padding-left: 50px;
+    }
+    textarea::placeholder {
+        font-size: 1rem;
+        color: #9c9c9c;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    input[type = time] {
+        width: 70%;
+        padding: 10px 15px;
+        margin: 5px 0;
+        box-sizing: border-box;
+     }
+     input[type = date] {
+        width: 70%;
+        padding: 10px 15px;
+        margin: 5px 0;
+        box-sizing: border-box;
+     }
+     
+     button[type = submit] {
+        border-radius: 15px;
+        width: 200%;
+     }
+
+     

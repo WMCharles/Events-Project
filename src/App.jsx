@@ -5,6 +5,9 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Likes from './components/Likes';
 import Home from './components/Home';
+import Login from './components/Login';
+import SignupForm from './components/Signup';
+
 import "./App.css";
 
 function App() {
@@ -17,6 +20,8 @@ function App() {
           <Route path='/favorites' element={<Likes />} />
           <Route path='/details' element={<EventDetails />} />
           <Route path='/checkout' element={<CheckoutPage />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<SignupForm />} />
         </Routes>
         <Footer />
       </Router>

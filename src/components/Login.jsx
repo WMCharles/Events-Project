@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Signup.css';
+import '../css/Signup.css';
 // import { Link } from 'react-router-dom';
 
 function Login() {
@@ -27,12 +27,12 @@ function Login() {
       <form onSubmit={handleSubmit}>
 
         <h3>Log In</h3>
-        <label>
+        <label className='label'>
           Email address
           <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
         </label>
         <br />
-        <label>
+        <label className='label'>
           Password
           <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
         </label>

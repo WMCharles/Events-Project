@@ -4,7 +4,7 @@ import FormField from "../styles/FormField";
 import Label from "../styles/Label";
 import Input from "../styles/Input";
 import Button from "../styles/Button";
-
+import '../css/Checkout.css'
 
 function CheckoutPage (){
     return (
@@ -89,7 +89,6 @@ gap: 5em;
 const Inline = styled.div`
 display: flex;
 margin: 20px auto;
-margin-right: -10px;
 gap: 4em;
 `
 const Ordersummary = styled.div`

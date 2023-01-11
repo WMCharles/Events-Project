@@ -24,7 +24,6 @@ function Login({ handleClick, onLogin }) {
       if (r.ok) {
         r.json().then((user) => onLogin(user));
       } else {
-        alert("Login failed");
         r.json().then((err) => setErrors(err.errors));
       }
     });
@@ -47,6 +46,13 @@ function Login({ handleClick, onLogin }) {
         </label>
         <br />
         <button type="submit">Submit</button>
+        {errors.length > 0 && (
+          <div style={{ color: "red" }}>
+            {errors.map((error) => (
+              <p key={error}>{error}</p>
+            ))}
+          </div>
+        )}
         <p>Already have an account? <a href='login' onClick={handleClick}>Sign Up</a></p>
       </form>
     </div>

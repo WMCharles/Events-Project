@@ -4,7 +4,7 @@ import '../css/HeroHome.css'
 export default function HeroHome() {
     return (
         <section>
-            <div class="welcome-msg">
+            <div className="welcome-msg">
                 <h1>Welcome to Event Plugs</h1>
                 <p>
                     Discover amazing events happening in your city. From concerts and

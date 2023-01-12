@@ -14,15 +14,15 @@ export default function BillingPage() {
                                     {/* <!-- General Information --> */}
                                     <div className="col-50">
                                         <h2>Billing Address</h2>
-                                        <label htmlFor="fname"><i className="fa fa-user"></i> Full Name</label>
+                                        <label htmlFor="fname"><i class="fa-solid fa-user"></i> Full Name</label>
                                         <input type="text" className="input-text" id="fname" name="firstname" placeholder="John M. Doe" />
                                         <div className="email-address-row">
                                             <div className="email-50">
-                                                <label htmlFor="email"><i className="fa fa-envelope"></i> Email</label>
+                                                <label htmlFor="email"><i class="fa-solid fa-envelope"></i> Email</label>
                                                 <input type="text" className="input-text" id="email" name="email" placeholder="john@example.com" />
                                             </div>
                                             <div className="email-50">
-                                                <label htmlFor="address"><i className="fa fa-address-card-o"></i> Address</label>
+                                                <label htmlFor="address"><i class="fa-regular fa-address-card"></i> Address</label>
                                                 <input type="text" className="input-text" id="address" name="address" placeholder="542 W. 15th Street" />
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@ export default function BillingPage() {
                         <div className="checkout-container">
                             <h2>
                                 Order Summary
-                                <span className="price" style={{color: "black"}}><i className="fa fa-shopping-cart"></i> <b>1</b></span>
+                                <span className="price" style={{color: "black"}}><i class="fa-solid fa-cart-shopping"></i> <b>1</b></span>
                             </h2>
                             <p>General X 1 <span className="price">$15</span></p>
                             <p>Admission Fees <span className="price">$5</span></p>

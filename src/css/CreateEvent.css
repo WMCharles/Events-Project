@@ -1,4 +1,4 @@
-form {
+.create-event > form {
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -15,13 +15,14 @@ form {
   margin-bottom: 100px;
 }
 
-textarea {
+.create-event textarea {
   width: 190%;
   height: 100%;
 }
 
-label {
+.create-event > form > label {
   margin-bottom: 0.5rem;
+  color: red;
 }
 
 select {
@@ -53,9 +54,9 @@ select {
   display: flex;
 }
 
-.time {
+/* .time {
   padding-left: 50px;
-}
+} */
 
 .time2 {
   padding-left: 50px;

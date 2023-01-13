@@ -28,8 +28,10 @@ export default function Register({ handleClick, onLogin }) {
             }),
         }).then((r) => {
             if (r.ok) {
+                setIsLoading(false)
                 r.json().then((user) => onLogin(user));
             } else {
+                setIsLoading(false)
                 r.json().then((err) => setErrors(err.errors));
             }
         });
@@ -53,7 +55,7 @@ export default function Register({ handleClick, onLogin }) {
                 </div>
                 <div class="input-control">
                     <label for="password">Confirm Password</label>
-                    <input type="password2" id="password2" name="passwordConfirmation" value={passwordConfirmation} onChange={(event) => setPasswordConfirmation(event.target.value)} />
+                    <input type="password" id="password2" name="passwordConfirmation" value={passwordConfirmation} onChange={(event) => setPasswordConfirmation(event.target.value)} />
                 </div>
                 {errors.length > 0 && (
                     <div className='input-control' style={{ color: "red" }}>

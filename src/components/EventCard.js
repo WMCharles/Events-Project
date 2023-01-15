@@ -10,8 +10,8 @@ const EventCard = (props) => {
             <div className="event-description">
                 <h3>{props.name}</h3>
                 <p className="start-date">Date: {props.start_date}</p>
-                <p>Location: {props.location}</p>
-                <p>Price: <span className="price-tag">{props.price}</span></p>
+                <p>Location: <span className="location-tag">{props.location}</span></p>
+                <p><span className="price-label">Price:</span> <span className="price-tag">{props.price}</span></p>
             </div>
         </EventCardStyle>
     )

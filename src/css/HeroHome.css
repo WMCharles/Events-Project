@@ -5,6 +5,7 @@ section {
     background-position: center;
     text-align: center;
     height: 45vh;
+    background-repeat: no-repeat;
 }
 
 .welcome-msg {

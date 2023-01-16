@@ -5,7 +5,7 @@ import '../css/Events.css'
 export default function Events() {
 
     const [events, setEvents] = useState([]);
-    const [visible, setVisible] = useState(8)
+
     // const [filter, setFilter] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -21,9 +21,24 @@ export default function Events() {
             });
     }, [isLoading]);
 
+    // load more events
+    const [visible, setVisible] = useState(8)
     const loadMore = () => {
         setVisible((prev) => prev + 4)
     }
+
+    // Implementing search functionality
+    const [query, setQuery] = useState('')
+    // const keys = ["description", "name"]
+
+    const search = (data) => {
+        return data.filter((item) =>
+            item.name.toLowerCase().includes(query) ||
+            item.location.toLowerCase().includes(query)
+        )
+    }
+
+    console.log(events)
 
     return (
         <div className="events-container" id="events-container">
@@ -39,12 +54,13 @@ export default function Events() {
                         type="text"
                         className="search-bar"
                         placeholder="Search For an Event..."
+                        onChange={(e) => { setQuery(e.target.value) }}
                     />
                     <button className="search-button">Search</button>
                 </div>
             </div>
             <div class="events">
-                {events.slice(0,visible).map((event) =>
+                {search(events).slice(0, visible).map((event) =>
                     <div class="event" key={event.id}>
                         <div class="image">
                             <img

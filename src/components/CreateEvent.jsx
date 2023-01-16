@@ -12,17 +12,37 @@ const EventForm = () => {
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
 
+  const [formData, setFormData] = useState({});
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // API
+    fetch("https://event-plug.onrender.com/events", {
+      method: 'POST',
+      headers:{
+      'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify({
+        eventTitle: formData.eventTitle,
+        eventDescription: formData.eventDescription,
+        eventLocation: formData.eventLocation,
+        pricing: formData.pricing,
+        eventCategory: formData.eventCategory,
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        startTime: formData.startTime,
+        endTime: formData.endTime
+      })})
+    .then((response) => response.json())
+    .then((newEvent) => console.log(newEvent));
 
     alert(`Event created`);
   };
 
   return (
     <div className='create-event'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={console.log("clicked")}>
         <h2>Event information</h2>
         <div>
           <label htmlFor="eventTitle">Event Title*</label>

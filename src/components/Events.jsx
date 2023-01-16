@@ -5,6 +5,7 @@ import '../css/Events.css'
 export default function Events() {
 
     const [events, setEvents] = useState([]);
+    const [visible, setVisible] = useState(8)
     // const [filter, setFilter] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -19,6 +20,10 @@ export default function Events() {
                 setIsLoading(false);
             });
     }, [isLoading]);
+
+    const loadMore = () => {
+        setVisible((prev) => prev + 4)
+    }
 
     return (
         <div className="events-container" id="events-container">
@@ -39,7 +44,7 @@ export default function Events() {
                 </div>
             </div>
             <div class="events">
-                {events.map((event) =>
+                {events.slice(0,visible).map((event) =>
                     <div class="event" key={event.id}>
                         <div class="image">
                             <img
@@ -57,7 +62,7 @@ export default function Events() {
                 )}
             </div>
             <div className="load-more">
-                <button>Load More Events</button>
+                <button onClick={loadMore}>Load More Events</button>
             </div>
         </div>
     )

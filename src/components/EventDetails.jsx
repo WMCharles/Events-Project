@@ -8,8 +8,9 @@ export default function EventDetails() {
     const [event, setEvent] = useState([])
     const [loading, setLoading] = useState(true)
     const [reload, setReload] = useState(false)
+    const url = `https://maps.google.com/maps?q=${event.location}&t=&z=13&ie=UTF8&iwloc=&output=embed`
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
 
     const fetchProduct = async () => {
@@ -32,7 +33,6 @@ export default function EventDetails() {
             .then((res) => res.json())
     }
 
-
     return (
         <div className="Details">
             <div className="details-header">
@@ -42,11 +42,21 @@ export default function EventDetails() {
             </div>
             <div className="map-image">
                 <div>
-                    <div className="map-image-image">
-                        <img src={event.image} alt="" />
+                    <img src={event.image} alt="" />
+                </div>
+                <div className="mapouter">
+                    <div className="gmap_canvas">
+                        <iframe
+                            title="Event Location"
+                            id="gmap_canvas"
+                            src={url}
+                            frameborder="0"
+                            scrolling="no"
+                            marginheight="0"
+                            marginwidth="0"
+                        ></iframe>
                     </div>
                 </div>
-                <div className='map'></div>
             </div>
             <div className="details-description">
                 <h1>About This Event</h1>
@@ -79,6 +89,14 @@ export default function EventDetails() {
                     </div>
                 </div>
             </div>
+            {/* <div className="tickets">
+                <dir>
+                    <button>Get Tickets</button>
+                </dir>
+                <div>
+                    <button>Add to Favorites</button>
+                </div>
+            </div> */}
         </div>
     )
 }

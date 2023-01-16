@@ -9,7 +9,7 @@ import SignupForm from './components/Signup';
 import BillingPage from './components/BillingPage';
 import AddEvent from './components/AddEvent';
 import Auth from './components/Auth';
-
+import Account from './components/Account';
 import "./App.css";
 import { useEffect, useState } from 'react';
 
@@ -40,6 +40,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignupForm />} />
           <Route path='/create' element={<AddEvent />} />
+          <Route path='/profile' element={<Account />} />
         </Routes>
         <Footer />
       </Router>

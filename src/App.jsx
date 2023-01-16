@@ -35,7 +35,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/favorites' element={<Likes />} />
-          <Route path='/details' element={<EventDetails />} />
+          <Route path='/events/:id' element={<EventDetails />} />
           <Route path='/checkout' element={<BillingPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignupForm />} />

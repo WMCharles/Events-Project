@@ -66,6 +66,10 @@
     height: 230px;
 }
 
+.image img:hover {
+    cursor: pointer;
+}
+
 /* Make the layout responsive */
 @media (max-width: 600px) {
     .events {

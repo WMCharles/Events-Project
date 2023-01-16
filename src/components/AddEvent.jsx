@@ -45,6 +45,9 @@ export default function AddEvent() {
                 <label htmlFor="fname">Event Title*</label>
                 <input onChange={(e) => setEventTitle(e.target.value)} value={eventTitle} className="create-event-input" type="text" id="fname" name="firstname" placeholder="Make it precise as possible" />
 
+                <label htmlFor="fname">Image Url*</label>
+                <input className="create-event-input" type="text" id="fname" name="firstname" placeholder="Make it precise as possible" />
+
                 <label htmlFor="subject">Event Description*</label>
                 <textarea onChange={(e) => setEventDescription(e.target.value)} value={eventDescription} className="create-event-textarea" id="subject" name="subject" placeholder="Write a brief description of the event.." style={{height: "200px"}}></textarea>
 

@@ -59,17 +59,18 @@ export default function Events() {
                     <button className="search-button">Search</button>
                 </div>
             </div>
-            <div class="events">
+            <div className="events">
                 {search(events).slice(0, visible).map((event) =>
-                    <div class="event" key={event.id}>
-                        <div class="image">
+                    <div className="event" key={event.id}>
+                        <div className="image">
                             <img
                                 src={event.image}
                                 alt=""
+                                onClick={() => { navigate(`/events/${event.id}`); }}
                             />
                         </div>
-                        <div class="details">
-                            <h3 onClick={() => { navigate(`/events/${event.id}`); }}>{event.name}</h3>
+                        <div className="details">
+                            <h3>{event.name}</h3>
                             <p>Date: {event.start_date}</p>
                             <p>Location: {event.location}</p>
                             <p>Price: {event.price}</p>

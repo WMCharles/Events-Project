@@ -23,6 +23,7 @@ export default function NavBar({setUser}) {
                 <li><HashLink to="/#events-container">Events</HashLink></li>
                 <li><Link to="/favorites">Likes</Link></li>
                 <li><Link to="/create">Create Event</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
                 <li><Link to="#" onClick={handleLogoutClick}>Logout</Link></li>
             </ul>
             <Outlet />

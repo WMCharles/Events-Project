@@ -22,20 +22,20 @@ export default function Events() {
 
     return (
         <div className="events-container" id="events-container">
-            <div class="events-header">
+            <div className="events-header">
                 <h1>Upcoming Events</h1>
                 <p>
                     Check out our list of events coming up in the next few months
                 </p>
             </div>
-            <div class="search-section">
-                <div class="search-container">
+            <div className="search-section">
+                <div className="search-container">
                     <input
                         type="text"
-                        class="search-bar"
+                        className="search-bar"
                         placeholder="Search For an Event..."
                     />
-                    <button class="search-button">Search</button>
+                    <button className="search-button">Search</button>
                 </div>
             </div>
             <div class="events">
@@ -56,7 +56,7 @@ export default function Events() {
                     </div>
                 )}
             </div>
-            <div class="load-more">
+            <div className="load-more">
                 <button>Load More Events</button>
             </div>
         </div>

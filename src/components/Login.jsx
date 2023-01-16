@@ -2,25 +2,33 @@ import React, { useState } from 'react';
 import '../css/Signup.css';
 // import { Link } from 'react-router-dom';
 
-function Login() {
-  const [fullName, setFullName] = useState('');
+function Login({ handleClick, onLogin }) {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [errors, setErrors] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // validate form fields
-    if (fullName.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
-      // display an error message
-      return;
-    }
-    if (password !== confirmPassword) {
-      // display an error message
-      return;
-    }
-    // submit form
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    fetch("https://event-plug.onrender.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
   }
+
 
   return (
     <div className='container'>
@@ -29,16 +37,23 @@ function Login() {
         <h3>Log In</h3>
         <label className='label'>
           Email address
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <input type="email" name="username" value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
         <br />
         <label className='label'>
           Password
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br />
         <button type="submit">Submit</button>
-        Already have an account? <a href='login'>Login</a>
+        {errors.length > 0 && (
+          <div style={{ color: "red" }}>
+            {errors.map((error) => (
+              <p key={error}>{error}</p>
+            ))}
+          </div>
+        )}
+        <p>Already have an account? <a href='login' onClick={handleClick}>Sign Up</a></p>
       </form>
     </div>
   );

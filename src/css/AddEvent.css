@@ -1,0 +1,56 @@
+.event-container {
+    width: 90%;
+    margin: 2em auto;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+.event-container hr {
+    margin-bottom: 1em;
+}
+
+.cat-location {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1em;
+    margin-top: 1em;
+}
+
+.date-time {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1em;
+    margin-top: 1em;
+}
+
+.create-event-input,
+.create-event-textarea,
+.create-event-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.create-event-input:focus,
+.create-event-select:focus,
+.create-event-textarea:focus {
+    outline: none;
+}
+
+.create-event-btn {
+    background-color: #1406fa;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1em;
+}

@@ -3,7 +3,16 @@ import { HashLink } from 'react-router-hash-link'
 import React from 'react'
 import '../css/NavBar.css'
 
-export default function NavBar() {
+export default function NavBar({setUser}) {
+
+    function handleLogoutClick() {
+        fetch("https://event-plug.onrender.com/logout", { method: "DELETE" }).then((r) => {
+            if (r.ok) {
+                setUser(null);
+            }
+        });
+    }
+
     return (
         <nav>
             <input type="checkbox" name="" id="check" />
@@ -14,9 +23,9 @@ export default function NavBar() {
                 <li><HashLink to="/#events-container">Events</HashLink></li>
                 <li><Link to="/favorites">Likes</Link></li>
                 <li><Link to="/create">Create Event</Link></li>
-                <li><Link to="/login">Login</Link></li>
+                <li><Link to="#" onClick={handleLogoutClick}>Logout</Link></li>
             </ul>
-            <Outlet/>
+            <Outlet />
         </nav>
     )
 }

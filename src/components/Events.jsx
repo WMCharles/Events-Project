@@ -48,7 +48,7 @@ export default function Events() {
                             />
                         </div>
                         <div class="details">
-                            <h3>{event.name}</h3>
+                            <h3 onClick={() => { navigate(`/events/${event.id}`); }}>{event.name}</h3>
                             <p>Date: {event.start_date}</p>
                             <p>Location: {event.location}</p>
                             <p>Price: {event.price}</p>

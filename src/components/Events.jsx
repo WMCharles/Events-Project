@@ -2,24 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/Events.css'
 
-export default function Events() {
-
-    const [events, setEvents] = useState([]);
-
+export default function Events({ events }) {
     // const [filter, setFilter] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     // navigation
     const navigate = useNavigate()
-
-    useEffect(() => {
-        fetch("https://event-plug.onrender.com/events")
-            .then((res) => res.json())
-            .then((data) => {
-                setEvents(data);
-                setIsLoading(false);
-            });
-    }, [isLoading]);
 
     // load more events
     const [visible, setVisible] = useState(8)
@@ -29,16 +17,12 @@ export default function Events() {
 
     // Implementing search functionality
     const [query, setQuery] = useState('')
-    // const keys = ["description", "name"]
-
     const search = (data) => {
         return data.filter((item) =>
             item.name.toLowerCase().includes(query) ||
             item.location.toLowerCase().includes(query)
         )
     }
-
-    console.log(events)
 
     return (
         <div className="events-container" id="events-container">

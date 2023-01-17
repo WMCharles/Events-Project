@@ -54,8 +54,13 @@
     width: 80%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
     line-height: 2em;
+}
+
+.xxx {
+    height: 30vh;
+    text-align: center;
 }
 
 .events div {

@@ -2,11 +2,11 @@ import React from 'react'
 import HeroHome from './HeroHome'
 import Events from './Events'
 
-export default function Home() {
+export default function Home({ events }) {
     return (
         <div>
             <HeroHome />
-            <Events />
+            <Events events={events}/>
         </div>
     )
 }

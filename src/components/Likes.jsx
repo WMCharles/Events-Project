@@ -2,11 +2,11 @@ import LikedEvents from './LikedEvents'
 import HeroLikes from './HeroLikes'
 import React from 'react'
 
-export default function Likes() {
+export default function Likes({ likes }) {
     return (
         <div>
             <HeroLikes />
-            <LikedEvents />
+            <LikedEvents Events={likes}/>
         </div>
     )
 }

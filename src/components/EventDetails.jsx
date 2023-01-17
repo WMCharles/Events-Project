@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import '../css/Details.css'
 
-export default function EventDetails() {
+export default function EventDetails({ addToLikes }) {
 
     const { id } = useParams()
     const [event, setEvent] = useState([])
     const [loading, setLoading] = useState(true)
-    const [reload, setReload] = useState(false)
     const url = `https://maps.google.com/maps?q=${event.location}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+    
 
     // date formating
     const date = new Date(event.start_date);
@@ -22,18 +22,18 @@ export default function EventDetails() {
             .then((item) => {
                 setLoading(false)
                 setEvent(item)
+                // console.log(item)
             })
     }
     useEffect(() => {
         fetchProduct()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [reload])
+    }, [])
 
-    function handleDelete(product) {
-        fetch(`https://event-plug.onrender.com/events/${product.id}`, {
-            method: "DELETE"
-        })
-            .then((res) => res.json())
+
+    function handleAddToLikes(item) {
+        // console.log(item.id)
+        addToLikes(item)
     }
 
     return (
@@ -64,7 +64,7 @@ export default function EventDetails() {
             <div className="details-description">
                 <div className='about'>
                     <h1>About This Event</h1>
-                    <p className='like'>
+                    <p className='like' onClick={() => handleAddToLikes(event)}>
                         <i class="fa-regular fa-heart"></i>
                         <span className='tooltiptext'>Like Event</span>
                     </p>

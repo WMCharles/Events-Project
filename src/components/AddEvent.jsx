@@ -23,6 +23,7 @@ export default function AddEvent() {
             body: JSON.stringify({
                 name: eventTitle,
                 image: image,
+                address:"0",
                 description: eventDescription,
                 category: eventCategory,
                 location: eventLocation,
@@ -57,12 +58,12 @@ export default function AddEvent() {
                     <div className="sub-cat-location">
                         <label htmlFor="category">Category*</label>
                         <select onChange={(e) => setEventCategory(e.target.value)} value={eventCategory} className="create-event-select" id="country" name="country">
-                            <option value="Tech">Tech</option>
-                            <option value="Food & Drink">Food & Drink</option>
-                            <option value="Hiking & Adventure">Hiking & Adventure</option>
-                            <option value="Music">Music</option>
-                            <option value="Sports & Fitness">Sports & Fitness</option>
-                            <option value="General">General</option>
+                            <option value="IT and Technology">Tech</option>
+                            <option value="Food and Drinks">Food & Drinks</option>
+                            <option value="Hiking and Adventure">Hiking & Adventure</option>
+                            <option value="Music and Concert">Music</option>
+                            <option value="Sports and Entertainment">Sports & Entertainment</option>
+                            <option value="GEneral events">General</option>
                         </select>
                     </div>
                     <div className="sub-cat-location">

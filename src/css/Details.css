@@ -14,10 +14,6 @@
     font-size: 2.5rem;
 }
 
-.date-location {
-    margin-top: 1em;
-}
-
 .content {
     display: flex;
     margin-top: .5em;
@@ -45,10 +41,7 @@
 }
 
 
-.map {
-    width: 100%;
-    background-color: gray;
-}
+/* google maps */
 
 iframe {
     width: 100%;
@@ -71,13 +64,76 @@ iframe {
     margin-top: 1em;
 }
 
+.about {
+    display: flex;
+    justify-content: space-between;
+}
+
 .details-description h1 {
     margin-bottom: .5em;
 }
 
+.like {
+    position: relative;
+    display: inline-block;
+
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-right: 20px;
+}
+
+.like .tooltiptext {
+    visibility: hidden;
+    width: 90px;
+    background-color: blue;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.like:hover .tooltiptext {
+    visibility: visible;
+}
+
+.like span {
+    font-size: .5em;
+}
+
+.like:hover {
+    cursor: pointer;
+}
+
+/* when and where */
 .tickets {
-    width: 20%;
-    display: flex;
-    justify-content: space-between;
     margin-top: 2em;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.date-location span {
+    font-weight: bold;
+}
+
+.tiko p span {
+    font-weight: 700;
+}
+
+.tiko p {
+    margin-bottom: 1em;
+}
+
+.tiko button {
+    background-color: #1406FA;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
 }

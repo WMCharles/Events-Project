@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/Events.css'
 
@@ -6,11 +6,17 @@ export default function LikedEvents({ Events }) {
 
     const navigate = useNavigate()
 
+    // load more events
+    const [visible, setVisible] = useState(8)
+    const loadMore = () => {
+        setVisible((prev) => prev + 4)
+    }
+
     return (
         <div className="events-container">
             {/* if there are no events */}
             {Events.length === 0 &&
-                <div className="events xxx">
+                <div className="xxx">
                     <h1>You have no Favorite Events</h1>
                 </div>
             }
@@ -36,9 +42,9 @@ export default function LikedEvents({ Events }) {
                             </div>
                         )}
                     </div>
-                    <div className="load-more">
-                        <button>Load More Events</button>
-                    </div>
+                    {visible <= Events.length &&
+                        <button onClick={loadMore}>Load More Events</button>
+                    }
                 </>
             }
 

@@ -10,7 +10,10 @@ export default function EventDetails() {
     const [reload, setReload] = useState(false)
     const url = `https://maps.google.com/maps?q=${event.location}&t=&z=13&ie=UTF8&iwloc=&output=embed`
 
-    // const navigate = useNavigate()
+    // date formating
+    const date = new Date(event.start_date);
+    const event_date = date.toDateString()
+
 
 
     const fetchProduct = async () => {
@@ -36,7 +39,7 @@ export default function EventDetails() {
     return (
         <div className="Details">
             <div className="details-header">
-                <h2>{event.start_date}</h2>
+                <h2>{event_date}</h2>
                 <h1>{event.name}</h1>
                 <p>Event Organised by NASA Kenya</p>
             </div>
@@ -50,53 +53,47 @@ export default function EventDetails() {
                             title="Event Location"
                             id="gmap_canvas"
                             src={url}
-                            frameborder="0"
+                            frameBorder="0"
                             scrolling="no"
-                            marginheight="0"
-                            marginwidth="0"
+                            marginHeight="0"
+                            marginWidth="0"
                         ></iframe>
                     </div>
                 </div>
             </div>
             <div className="details-description">
-                <h1>About This Event</h1>
+                <div className='about'>
+                    <h1>About This Event</h1>
+                    <p className='like'>
+                        <i class="fa-regular fa-heart"></i>
+                        <span className='tooltiptext'>Like Event</span>
+                    </p>
+
+                </div>
                 <p>
                     {event.description}
                 </p>
+
             </div>
-            <div className="date-location">
-                <h2>When And Where</h2>
-                <div className="content">
-                    <div>
-                        <div className="icons">
-                            <h1><i className="fa-solid fa-calendar-days"></i></h1>
-                        </div>
-                        <div className="calendar-details">
-                            <h3>Date and Time</h3>
-                            <p>{event.start_date}</p>
-                            <p>{event.start_time} - {event.end_time}</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="icons">
-                            <h1><i className="fa-regular fa-map"></i></h1>
-                        </div>
-                        <div className="calendar-details">
-                            <h3>Location</h3>
-                            <p>{event.location}</p>
-                            <p>{event.start_time} - {event.end_time}</p>
-                        </div>
-                    </div>
+            <div className="tickets">
+                <div className="date-location">
+                    <p><span>When: </span> {event_date}</p>
+                    <p><span>Where: </span> {event.location}</p>
+                    <p><span>Time: </span> {`${event.start_time} - ${event.end_time}`} EAT</p>
                 </div>
+                {event.price === null &&
+                    <div className='tiko'>
+                        <p><span>Price: </span> Free</p>
+                        <button>Reserve a spot</button>
+                    </div>
+                }
+                {event.price !== null &&
+                    <div className='tiko'>
+                        <p><span>Price: </span>Kshs. {event.price}</p>
+                        <button>Buy Tickets</button>
+                    </div>
+                }
             </div>
-            {/* <div className="tickets">
-                <dir>
-                    <button>Get Tickets</button>
-                </dir>
-                <div>
-                    <button>Add to Favorites</button>
-                </div>
-            </div> */}
         </div>
     )
 }

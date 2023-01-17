@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/Events.css'
 
 export default function Events({ events }) {
-    // const [filter, setFilter] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
     // navigation
     const navigate = useNavigate()
@@ -22,6 +20,12 @@ export default function Events({ events }) {
             item.name.toLowerCase().includes(query) ||
             item.location.toLowerCase().includes(query)
         )
+    }
+
+    function tarehe(event) {
+        const date = new Date(event.start_date);
+        const event_date = date.toDateString()
+        return event_date
     }
 
     return (
@@ -55,15 +59,17 @@ export default function Events({ events }) {
                         </div>
                         <div className="details">
                             <h3>{event.name}</h3>
-                            <p>Date: {event.start_date}</p>
-                            <p>Location: {event.location}</p>
+                            <p>Date: {tarehe(event)}</p>
+                            <p>Location: {event.location.substring(0,35)}</p>
                             <p>Price: {event.price}</p>
                         </div>
                     </div>
                 )}
             </div>
             <div className="load-more">
-                <button onClick={loadMore}>Load More Events</button>
+                {visible <= events.length &&
+                    <button onClick={loadMore}>Load More Events</button>
+                }
             </div>
         </div>
     )

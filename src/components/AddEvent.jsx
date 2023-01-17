@@ -4,6 +4,7 @@ import '../css/AddEvent.css'
 export default function AddEvent() {
 
     const [eventTitle, setEventTitle] = useState('');
+    const [image, setImage] = useState('');
     const [eventDescription, setEventDescription] = useState('');
     const [eventLocation, setEventLocation] = useState('');
     const [pricing, setPricing] = useState('');
@@ -20,15 +21,16 @@ export default function AddEvent() {
             method: "POST",
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({
-                eventTitle: eventTitle,
-                eventDescription: eventDescription,
-                eventCategory: eventCategory,
-                eventLocation: eventLocation,
+                name: eventTitle,
+                image: image,
+                description: eventDescription,
+                category: eventCategory,
+                location: eventLocation,
                 pricing: pricing,
-                startDate: startDate,
-                endDate: endDate,
-                startTime: startTime,
-                endTime: endTime
+                start_date: startDate,
+                end_date: endDate,
+                start_time: startTime,
+                end_time: endTime
             }
             )
         })
@@ -46,7 +48,7 @@ export default function AddEvent() {
                 <input onChange={(e) => setEventTitle(e.target.value)} value={eventTitle} className="create-event-input" type="text" id="fname" name="firstname" placeholder="Make it precise as possible" />
 
                 <label htmlFor="fname">Image Url*</label>
-                <input className="create-event-input" type="text" id="fname" name="firstname" placeholder="Make it precise as possible" />
+                <input className="create-event-input" type="text" id="image" name="image" onChange={(e) => setImage(e.target.value)} value={image} placeholder="enter image url" />
 
                 <label htmlFor="subject">Event Description*</label>
                 <textarea onChange={(e) => setEventDescription(e.target.value)} value={eventDescription} className="create-event-textarea" id="subject" name="subject" placeholder="Write a brief description of the event.." style={{height: "200px"}}></textarea>
@@ -55,9 +57,12 @@ export default function AddEvent() {
                     <div className="sub-cat-location">
                         <label htmlFor="category">Category*</label>
                         <select onChange={(e) => setEventCategory(e.target.value)} value={eventCategory} className="create-event-select" id="country" name="country">
-                            <option value="IT & Technology">IT & Technology</option>
-                            <option value="Agriculture">Agriculture</option>
-                            <option value="Sports">Sports</option>
+                            <option value="Tech">Tech</option>
+                            <option value="Food & Drink">Food & Drink</option>
+                            <option value="Hiking & Adventure">Hiking & Adventure</option>
+                            <option value="Music">Music</option>
+                            <option value="Sports & Fitness">Sports & Fitness</option>
+                            <option value="General">General</option>
                         </select>
                     </div>
                     <div className="sub-cat-location">

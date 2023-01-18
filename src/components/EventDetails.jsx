@@ -36,21 +36,21 @@ export default function EventDetails({ addToLikes, user }) {
 
     function handleAddToLikes(item) {
         addToLikes(item);
-        // fetch('https://event-plug.onrender.com/likes', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify({
-        //        user_id: user.id,
-        //        event_id: event.id
-        //     })
-        // })
-        // .then ((response) => {
-        //     if (response.ok) {
-        //         alert('Event added to your favorites successfully!')
-        //     } else {
-        //         alert('Failed to add event to favorites');
-        //     }
-        // })
+        fetch('https://event-plug.onrender.com/likes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+               user_id: user.id,
+               event_id: event.id
+            })
+        })
+        .then ((response) => {
+            if (response.ok) {
+                alert('Successfully added to your Favorites!')
+            } else {
+                alert('Failed to add event to favorites');
+            }
+        })
     }
 
     return (

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/AddEvent.css'
 
 export default function AddEvent({ user }) {
 
+    const navigate = useNavigate()
     const [eventTitle, setEventTitle] = useState('');
     const [image, setImage] = useState('');
     const [eventDescription, setEventDescription] = useState('');
@@ -38,7 +40,8 @@ export default function AddEvent({ user }) {
         })
             .then((res) => {
                 if (res.ok) {
-                    alert('Event Successfully updated');
+                    alert('Event Successfully Created');
+                    navigate('/')
                 } else {
                     alert('Something went wrong')
                 }

@@ -3,7 +3,7 @@ import { HashLink } from 'react-router-hash-link'
 import React from 'react'
 import '../css/NavBar.css'
 
-export default function NavBar({setUser}) {
+export default function NavBar({ setUser, user }) {
 
     function handleLogoutClick() {
         fetch("https://event-plug.onrender.com/logout", { method: "DELETE" }).then((r) => {
@@ -22,7 +22,16 @@ export default function NavBar({setUser}) {
                 <li><Link to="/">Home</Link></li>
                 <li><HashLink to="/#events-container">Events</HashLink></li>
                 <li><Link to="/favorites">Likes</Link></li>
-                <li><Link to="/create">Create Event</Link></li>
+                {user.role === 'Admin' &&
+                    <>
+                        <li><Link to="/create">Create Event</Link></li>
+                    </>
+                }
+                {user.role === 'Organizer' &&
+                    <>
+                        <li><Link to="/create">Create Event</Link></li>
+                    </>
+                }
                 <li><Link to="/profile">Profile</Link></li>
                 <li><Link to="#" onClick={handleLogoutClick}>Logout</Link></li>
             </ul>

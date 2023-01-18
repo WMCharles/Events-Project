@@ -40,7 +40,7 @@ function App() {
   console.log(events)
 
   // authentication
-  const [user, setUser] = useState('null');
+  const [user, setUser] = useState(null);
   useEffect(() => {
     // auto-login
     fetch("https://event-plug.onrender.com/me").then((r) => {
@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar setUser={setUser} />
+        <NavBar setUser={setUser} user={user}/>
         <Routes>
           <Route path='/' element={<Home events={events} loading={loading}/>} />
           <Route path='/favorites' element={<Likes likes={likes} />} />

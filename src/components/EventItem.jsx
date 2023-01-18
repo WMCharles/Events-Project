@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/Details.css'
 
-export default function EventItem({ event, handleAddToLikes, user, url }) {
+export default function EventItem({ event, handleAddToLikes, user, url, togglePopup }) {
 
     const navigate = useNavigate()
 
@@ -45,7 +45,7 @@ export default function EventItem({ event, handleAddToLikes, user, url }) {
                 <div className='about'>
                     <h1>About This Event</h1>
                     <p className='like' onClick={() => handleAddToLikes(event)}>
-                        <i class="fa-regular fa-heart"></i>
+                        <i className="fa-regular fa-heart"></i>
                         <span className='tooltiptext'>Like Event</span>
                     </p>
 
@@ -70,7 +70,7 @@ export default function EventItem({ event, handleAddToLikes, user, url }) {
                 {event.price !== 0 &&
                     <div className='tiko'>
                         <p><span>Price: </span>Kshs. {event.price}</p>
-                        <button>Buy Tickets</button>
+                        <button onClick={togglePopup}>Buy Tickets</button>
                     </div>
                 }
             </div>

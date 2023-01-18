@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
 import EventItem from "./EventItem";
+import Checkout002 from "./Checkout002";
 import "../css/Details.css";
 
 export default function EventDetails({ addToLikes, user }) {
-    
+
     // states
     const { id } = useParams();
     const [event, setEvent] = useState([]);
@@ -26,12 +27,40 @@ export default function EventDetails({ addToLikes, user }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    // pop up
+    const [isOpen, setIsOpen] = useState(false);
+
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
+
     function handleAddToLikes(item) {
         addToLikes(item);
+        // fetch('https://event-plug.onrender.com/likes', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({
+        //        user_id: user.id,
+        //        event_id: event.id
+        //     })
+        // })
+        // .then ((response) => {
+        //     if (response.ok) {
+        //         alert('Event added to your favorites successfully!')
+        //     } else {
+        //         alert('Failed to add event to favorites');
+        //     }
+        // })
     }
 
     return (
         <>
+            {isOpen && <Checkout002 handleClose={togglePopup} event={event}/>}
+            {/* <EventItem user={user}
+                handleAddToLikes={handleAddToLikes}
+                event={event}
+                url={url}
+                togglePopup={togglePopup} /> */}
             {loading ? (
                 <Loading />
             ) : (
@@ -40,6 +69,7 @@ export default function EventDetails({ addToLikes, user }) {
                     handleAddToLikes={handleAddToLikes}
                     event={event}
                     url={url}
+                    togglePopup ={togglePopup}
                 />
             )}
         </>

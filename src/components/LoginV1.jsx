@@ -21,9 +21,11 @@ export default function LoginV1({ handleClick, onLogin }) {
         }).then((r) => {
             setIsLoading(false);
             if (r.ok) {
+                alert("Logged in successfully");
                 r.json().then((user) => onLogin(user));
             } else {
                 r.json().then((err) => setErrors(err.errors));
+                alert("Log in failed");
             }
         });
     }
@@ -42,7 +44,7 @@ export default function LoginV1({ handleClick, onLogin }) {
                     <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 {errors.length > 0 && (
-                    <div style={{ color: "red" }} className="input-control">
+                    <div className='input-control' style={{ color: "red" }}>
                         {errors.map((error) => (
                             <p key={error}>{error}</p>
                         ))}

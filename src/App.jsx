@@ -18,12 +18,14 @@ function App() {
   // event states
   const [events, setEvents] = useState([]);
   const [likes, setLikes] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch("https://event-plug.onrender.com/events")
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);
+        setLoading(false)
       });
   }, []);
 
@@ -37,7 +39,7 @@ function App() {
   console.log(events)
 
   // authentication
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('null');
   useEffect(() => {
     // auto-login
     fetch("https://event-plug.onrender.com/me").then((r) => {
@@ -54,7 +56,7 @@ function App() {
       <Router>
         <NavBar setUser={setUser} />
         <Routes>
-          <Route path='/' element={<Home events={events}/>} />
+          <Route path='/' element={<Home events={events} loading={loading}/>} />
           <Route path='/favorites' element={<Likes likes={likes} />} />
           <Route path='/events/:id' element={<EventDetails addToLikes={addToLikes} user={user}/>} />
           <Route path='/checkout' element={<BillingPage />} />

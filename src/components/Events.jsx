@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'
+import Loading from './Loading';
+import HomeEvents from './HomeEvents';
 import '../css/Events.css'
 
-export default function Events({ events }) {
+export default function Events({ events, loading }) {
 
     // navigation
     const navigate = useNavigate()
@@ -29,48 +31,8 @@ export default function Events({ events }) {
     }
 
     return (
-        <div className="events-container" id="events-container">
-            <div className="events-header">
-                <h1>Upcoming Events</h1>
-                <p>
-                    Check out our list of events coming up in the next few months
-                </p>
-            </div>
-            <div className="search-section">
-                <div className="search-container">
-                    <input
-                        type="text"
-                        className="search-bar"
-                        placeholder="Search For an Event..."
-                        onChange={(e) => { setQuery(e.target.value) }}
-                    />
-                    <button className="search-button">Search</button>
-                </div>
-            </div>
-            <div className="events">
-                {search(events).slice(0, visible).map((event) =>
-                    <div className="event" key={event.id}>
-                        <div className="image">
-                            <img
-                                src={event.image}
-                                alt=""
-                                onClick={() => { navigate(`/events/${event.id}`); }}
-                            />
-                        </div>
-                        <div className="details">
-                            <h3>{event.name}</h3>
-                            <p>Date: {tarehe(event)}</p>
-                            <p>Location: {event.location.substring(0,35)}</p>
-                            <p>Price: {event.price}</p>
-                        </div>
-                    </div>
-                )}
-            </div>
-            <div className="load-more">
-                {visible <= events.length &&
-                    <button onClick={loadMore}>Load More Events</button>
-                }
-            </div>
-        </div>
+        <>
+            {loading ? <Loading /> : <HomeEvents loading={loading} events={events}/>}
+        </>
     )
 }

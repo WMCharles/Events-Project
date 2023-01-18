@@ -1,7 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../css/Billing.css'
 
-export default function Account() {
+export default function Account({ user }) {
+
+    console.log(user)
+
+    const [formData, setFormData] = useState({
+        name: user.name,
+        email: user.email,
+        phone_number: user.phone_number,
+        billing_address: user.billing_address,
+        first_name: user.first_name,
+        last_name: user.last_name,
+    })
+
+    // handling input change 
+    function handleInputChange(event) {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
+    }
+
+    // fetching data while editing
+    useEffect(() => {
+        if (user.id) {
+            fetch(`https://event-plug.onrender.com/users/${user.id}`)
+                .then(resp => resp.json())
+                .then((item) => {
+                    setFormData(item);
+                })
+        }
+    }, [user.id]);
+
+    function handleFormSubmit(e) {
+        e.preventDefault()
+        // console.log(formData)
+        fetch(`https://event-plug.onrender.com/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+            .then((res) => {
+                if (res.ok) {
+                    alert('Account Successfully Updated');
+
+                } else {
+                    alert('Something went wrong')
+                }
+            })
+    }
+
+
     return (
         <div className="checkout">
             <h1>Account Information</h1>
@@ -9,21 +61,21 @@ export default function Account() {
             <div className="row">
                 <div className="col-75">
                     <div className="checkout-container">
-                        <form>
+                        <form onSubmit={handleFormSubmit}>
                             <div className="row">
                                 {/* <!-- General Information --> */}
                                 <div className="col-50">
                                     <h2>Contact Information</h2>
                                     <label htmlFor="fname">Full Name</label>
-                                    <input type="text" className="input-text" id="fname" name="firstname" placeholder="John M. Doe" />
+                                    <input type="text" className="input-text" id="fname" name='name' onChange={handleInputChange} value={formData.name} placeholder="John M. Doe" />
                                     <div className="email-address-row">
                                         <div className="email-50">
-                                            <label htmlFor="email">Cell Phone</label>
-                                            <input type="text" className="input-text" id="email" name="email" placeholder="+254 712345678" />
+                                            <label htmlFor="email">Phone Number</label>
+                                            <input type="text" className="input-text" id="email" name='phone_number' onChange={handleInputChange} value={formData.phone_number} placeholder="+254 712345678" />
                                         </div>
                                         <div className="email-50">
-                                            <label htmlFor="address"> Home Phone</label>
-                                            <input type="text" className="input-text" id="address" name="address" placeholder="+254 712345678" />
+                                            <label htmlFor="address"> Email</label>
+                                            <input type="text" className="input-text" id="address" name='email' onChange={handleInputChange} value={formData.email} placeholder="+254 712345678" />
                                         </div>
                                     </div>
                                 </div>
@@ -49,8 +101,8 @@ export default function Account() {
                                             <input type="text" className="input-text" id="expyear" name="city" placeholder="e.g Thika" />
                                         </div>
                                         <div className="email-50">
-                                            <label htmlFor="cvv">County</label>
-                                            <input type="text" className="input-text" id="cvv" name="county" placeholder="e.g Kiambu" />
+                                            <label htmlFor="cvv">Address</label>
+                                            <input type="text" className="input-text" id="cvv" name='billing_address' onChange={handleInputChange} value={formData.billing_address} placeholder="e.g Kiambu" />
                                         </div>
                                     </div>
                                 </div>

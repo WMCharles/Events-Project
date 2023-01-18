@@ -53,6 +53,25 @@ export default function EventDetails({ addToLikes, user }) {
         })
     }
 
+    function reserveEvent() {
+        
+        fetch('https://event-plug.onrender.com/reservations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+               user_id: user.id,
+               event_id: event.id
+            })
+        })
+        .then ((response) => {
+            if (response.ok) {
+                alert('Successfully reserved a spot!')
+            } else {
+                alert('Failed to reserve Event');
+            }
+        })
+    }
+
     return (
         <>
             {isOpen && <Checkout002 handleClose={togglePopup} event={event}/>}
@@ -67,6 +86,7 @@ export default function EventDetails({ addToLikes, user }) {
                 <EventItem
                     user={user}
                     handleAddToLikes={handleAddToLikes}
+                    reserveEvent={reserveEvent}
                     event={event}
                     url={url}
                     togglePopup ={togglePopup}

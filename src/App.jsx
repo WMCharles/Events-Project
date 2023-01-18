@@ -38,7 +38,6 @@ function App() {
     setLikes(newLikes)
   }
 
-  console.log(events)
 
   // authentication
   const [user, setUser] = useState(null);
@@ -59,14 +58,14 @@ function App() {
         <NavBar setUser={setUser} user={user} />
         <Routes>
           <Route path='/' element={<Home events={events} loading={loading} />} />
-          <Route path='/favorites' element={<Likes likes={likes} />} />
+          <Route path='/favorites' element={<Likes likes={likes} user={user}/>} />
           <Route path='/events/:id' element={<EventDetails addToLikes={addToLikes} user={user} />} />
           <Route path='/checkout' element={<BillingPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignupForm />} />
           <Route path='/create' element={<AddEvent user={user} />} />
-          <Route path='/profile' element={<Account />} />
-          <Route path='/myevents' element={<MyEvents />} />
+          <Route path='/profile' element={<Account user={user}/>} />
+          <Route path='/myevents' element={<MyEvents user={user}/>} />
           <Route path='/edit/:id' element={<EditEvent />} />
         </Routes>
         <Footer />

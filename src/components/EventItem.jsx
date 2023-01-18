@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/Details.css'
 
-export default function EventItem({ event, handleAddToLikes, user, url, togglePopup }) {
+export default function EventItem({ event, handleAddToLikes, user, url, togglePopup, reserveEvent }) {
 
     const navigate = useNavigate()
 
@@ -64,7 +64,7 @@ export default function EventItem({ event, handleAddToLikes, user, url, togglePo
                 {event.price === 0 &&
                     <div className='tiko'>
                         <p><span>Price: </span> Free</p>
-                        <button>Reserve a spot</button>
+                        <button onClick={() => reserveEvent()}>Reserve a spot</button>
                     </div>
                 }
                 {event.price !== 0 &&

@@ -46,7 +46,6 @@ export default function AddEvent({ user }) {
             .then((newEvent) => console.log(newEvent));
     };
 
-
     return (
         <div className="event-container">
             <h1>Event Information</h1>
@@ -70,7 +69,7 @@ export default function AddEvent({ user }) {
                             <option value="Hiking and Adventure">Hiking & Adventure</option>
                             <option value="Music and Concert">Music</option>
                             <option value="Sports and Entertainment">Sports & Entertainment</option>
-                            <option value="GEneral events">General</option>
+                            <option value="General events">General</option>
                         </select>
                     </div>
                     <div className="sub-cat-location">

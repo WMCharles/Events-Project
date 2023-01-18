@@ -5,8 +5,6 @@ import '../css/Likes.css'
 
 export default function MyEvents({ user }) {
 
-    console.log(user.events)
-
     const navigate = useNavigate()
 
     // load more events

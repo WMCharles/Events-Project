@@ -7,6 +7,7 @@ export default function Register({ handleClick, onLogin }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [role, setRole] = useState('User')
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -24,7 +25,7 @@ export default function Register({ handleClick, onLogin }) {
                 email,
                 password,
                 password_confirmation: passwordConfirmation,
-                role: "User"
+                role
             }),
         }).then((r) => {
             if (r.ok) {
@@ -42,20 +43,27 @@ export default function Register({ handleClick, onLogin }) {
             <form onSubmit={handleSubmit} id="form">
                 <h1>Sign Up</h1>
                 <div class="input-control">
-                    <label for="username">Full Name</label>
+                    <label htmlFor="username">Full Name</label>
                     <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div class="input-control">
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input type="text" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div class="input-control">
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div class="input-control">
-                    <label for="password">Confirm Password</label>
+                    <label htmlFor="password">Confirm Password</label>
                     <input type="password" id="password2" name="passwordConfirmation" value={passwordConfirmation} onChange={(event) => setPasswordConfirmation(event.target.value)} />
+                </div>
+                <div className="input-control">
+                    <label htmlFor="password">Register as</label>
+                    <select onChange={(e) => setRole(e.target.value)} value={role} className="create-event-select" id="country" name="country">
+                        <option value="User">Regular User</option>
+                        <option value="Organizer">Event Organizer</option>
+                    </select>
                 </div>
                 {errors.length > 0 && (
                     <div className='input-control' style={{ color: "red" }}>

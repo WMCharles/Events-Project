@@ -56,15 +56,15 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar setUser={setUser} user={user}/>
+        <NavBar setUser={setUser} user={user} />
         <Routes>
-          <Route path='/' element={<Home events={events} loading={loading}/>} />
+          <Route path='/' element={<Home events={events} loading={loading} />} />
           <Route path='/favorites' element={<Likes likes={likes} />} />
-          <Route path='/events/:id' element={<EventDetails addToLikes={addToLikes} user={user}/>} />
+          <Route path='/events/:id' element={<EventDetails addToLikes={addToLikes} user={user} />} />
           <Route path='/checkout' element={<BillingPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignupForm />} />
-          <Route path='/create' element={<AddEvent />} />
+          <Route path='/create' element={<AddEvent user={user} />} />
           <Route path='/profile' element={<Account />} />
           <Route path='/myevents' element={<MyEvents />} />
           <Route path='/edit/:id' element={<EditEvent />} />

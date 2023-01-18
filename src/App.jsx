@@ -56,7 +56,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home events={events}/>} />
           <Route path='/favorites' element={<Likes likes={likes} />} />
-          <Route path='/events/:id' element={<EventDetails addToLikes={addToLikes} />} />
+          <Route path='/events/:id' element={<EventDetails addToLikes={addToLikes} user={user}/>} />
           <Route path='/checkout' element={<BillingPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignupForm />} />

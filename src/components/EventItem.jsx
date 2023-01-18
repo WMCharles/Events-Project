@@ -61,13 +61,13 @@ export default function EventItem({ event, handleAddToLikes, user, url }) {
                     <p><span>Where: </span> {event.location}</p>
                     <p><span>Time: </span> {`${event.start_time} - ${event.end_time}`} EAT</p>
                 </div>
-                {event.price === null &&
+                {event.price === 0 &&
                     <div className='tiko'>
                         <p><span>Price: </span> Free</p>
                         <button>Reserve a spot</button>
                     </div>
                 }
-                {event.price !== null &&
+                {event.price !== 0 &&
                     <div className='tiko'>
                         <p><span>Price: </span>Kshs. {event.price}</p>
                         <button>Buy Tickets</button>
@@ -82,14 +82,20 @@ export default function EventItem({ event, handleAddToLikes, user, url }) {
             }
 
             {user !== null && user.id === event.user.id &&
-                <div className="delete">
-                    <div>
-                        <button className='delete-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
+                <>
+                    <div className="delete">
+                        <div>
+                            <button className='delete-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
+                        </div>
+                        <div>
+                            <button className='edit-btn' onClick={() => navigate(`/edit/${event.id}`)}>Edit Event</button>
+                        </div>
+
                     </div>
-                    <div>
-                        <button className='edit-btn' onClick={() => navigate('/')}><a href={`edit/${event.id}`}>Edit Event</a></button>
-                    </div>
-                </div>
+                    <hr />
+                    <h3>Other Details</h3>
+                    <p><span style={{fontWeight: "bold"}}>Total Reservations:</span> {event.reservations.length}</p>
+                </>
             }
         </div>
     )

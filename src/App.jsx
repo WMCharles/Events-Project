@@ -1,16 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import EventDetails from './components/EventDetails';
+import BillingPage from './components/BillingPage';
+import EditEvent from './components/EditEvent';
+import MyEvents from './components/MyEvents';
+import SignupForm from './components/Signup';
+import AddEvent from './components/AddEvent';
+import Account from './components/Account';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import Login from './components/Login';
 import Likes from './components/Likes';
 import Home from './components/Home';
-import Login from './components/Login';
-import SignupForm from './components/Signup';
-import BillingPage from './components/BillingPage';
-import AddEvent from './components/AddEvent';
 import Auth from './components/Auth';
-import Account from './components/Account';
-import MyEvents from './components/MyEvents';
 import "./App.css";
 import { useEffect, useState } from 'react';
 
@@ -66,6 +67,7 @@ function App() {
           <Route path='/create' element={<AddEvent />} />
           <Route path='/profile' element={<Account />} />
           <Route path='/myevents' element={<MyEvents />} />
+          <Route path='/edit/:id' element={<EditEvent />} />
         </Routes>
         <Footer />
       </Router>

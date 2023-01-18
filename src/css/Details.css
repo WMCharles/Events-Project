@@ -137,3 +137,17 @@ iframe {
     padding: 8px 16px;
     cursor: pointer;
 }
+
+.delete {
+    margin-top: 2em;
+}
+
+.delete button {
+    background-color: red;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+}

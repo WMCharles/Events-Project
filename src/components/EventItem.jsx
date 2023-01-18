@@ -74,9 +74,17 @@ export default function EventItem({ event, handleAddToLikes, user, url }) {
                     </div>
                 }
             </div>
+
             {user.role === 'Admin' &&
                 <div className="delete">
-                    <button onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
+                    <button className='delete-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
+                </div>
+            }
+
+            {user.role === 'Organizer' &&
+                <div className="delete">
+                    <button className='delete-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
+                    <button className='edit-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Edit Event</button>
                 </div>
             }
         </div>

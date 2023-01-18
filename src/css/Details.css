@@ -140,10 +140,23 @@ iframe {
 
 .delete {
     margin-top: 2em;
+    width: 40%;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
-.delete button {
+.delete-btn {
     background-color: red;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: green;
     color: #fff;
     font-size: 16px;
     border: none;

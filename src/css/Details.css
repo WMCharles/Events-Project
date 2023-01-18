@@ -140,7 +140,7 @@ iframe {
 
 .delete {
     margin-top: 2em;
-    width: 40%;
+    width: 20%;
     display: grid;
     grid-template-columns: auto auto;
 }

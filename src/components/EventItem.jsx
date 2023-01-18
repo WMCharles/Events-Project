@@ -21,7 +21,7 @@ export default function EventItem({ event, handleAddToLikes, user, url }) {
             <div className="details-header">
                 <h2>{event_date}</h2>
                 <h1>{event.name}</h1>
-                <p>Event Organised by NASA Kenya</p>
+                <p>Event Organised by {event.user.name}</p>
             </div>
             <div className="map-image">
                 <div>
@@ -81,10 +81,14 @@ export default function EventItem({ event, handleAddToLikes, user, url }) {
                 </div>
             }
 
-            {user.role === 'Organizer' &&
+            {user !== null && user.id === event.user.id &&
                 <div className="delete">
-                    <button className='delete-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
-                    <button className='edit-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Edit Event</button>
+                    <div>
+                        <button className='delete-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
+                    </div>
+                    <div>
+                        <button className='edit-btn' onClick={() => navigate('/')}><a href={`edit/${event.id}`}>Edit Event</a></button>
+                    </div>
                 </div>
             }
         </div>

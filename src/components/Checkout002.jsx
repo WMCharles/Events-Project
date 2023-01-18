@@ -1,10 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/Checkout002.css'
 
 export default function Checkout002({ handleClose, event }) {
+
+    const [formData, setFormData] = useState({
+        phoneNumber: "",
+        amount: `${event.price}`
+    })
+
+    // handling input change 
+    function handleInputChange(event) {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
+    }
+
+
+
+    function handlePay(e) {
+        e.preventDefault();
+        fetch('https://e32e-41-212-11-139.eu.ngrok.io/stkpush', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                phoneNumber: '254795289737',
+                amount: "10000"
+            })
+
+        })
+    }
+
     return (
         <>
-            <form>
+            <form onSubmit={handlePay}>
                 <div className="popup-box">
                     <div className="box">
                         <span className="close-icon" onClick={handleClose}>
@@ -21,7 +50,8 @@ export default function Checkout002({ handleClose, event }) {
                                 <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="Enter your phone number"
+                                    placeholder="e.g 25471234567"
+                                    name='phoneNumber' onChange={handleInputChange} value={formData.phoneNumber} 
                                 />
                                 <div className="form-text">
                                     We'll never share your phone number with anyone else.

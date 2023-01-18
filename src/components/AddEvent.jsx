@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css/AddEvent.css'
 
-export default function AddEvent() {
+export default function AddEvent({ user }) {
 
     const [eventTitle, setEventTitle] = useState('');
     const [image, setImage] = useState('');
@@ -19,15 +19,16 @@ export default function AddEvent() {
         // API
         fetch("https://event-plug.onrender.com/events", {
             method: "POST",
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 name: eventTitle,
                 image: image,
-                address:"0",
+                user_id: user.id,
+                address: "0",
                 description: eventDescription,
                 category: eventCategory,
                 location: eventLocation,
-                pricing: pricing,
+                price: pricing,
                 start_date: startDate,
                 end_date: endDate,
                 start_time: startTime,
@@ -35,9 +36,15 @@ export default function AddEvent() {
             }
             )
         })
-            .then((response) => response.json())
+            .then((res) => {
+                if (res.ok) {
+                    alert('Event Successfully updated');
+                } else {
+                    alert('Something went wrong')
+                }
+            })
             .then((newEvent) => console.log(newEvent));
-        };
+    };
 
 
     return (
@@ -52,7 +59,7 @@ export default function AddEvent() {
                 <input className="create-event-input" type="text" id="image" name="image" onChange={(e) => setImage(e.target.value)} value={image} placeholder="enter image url" />
 
                 <label htmlFor="subject">Event Description*</label>
-                <textarea onChange={(e) => setEventDescription(e.target.value)} value={eventDescription} className="create-event-textarea" id="subject" name="subject" placeholder="Write a brief description of the event.." style={{height: "200px"}}></textarea>
+                <textarea onChange={(e) => setEventDescription(e.target.value)} value={eventDescription} className="create-event-textarea" id="subject" name="subject" placeholder="Write a brief description of the event.." style={{ height: "200px" }}></textarea>
 
                 <div className="cat-location">
                     <div className="sub-cat-location">
@@ -68,7 +75,7 @@ export default function AddEvent() {
                     </div>
                     <div className="sub-cat-location">
                         <label htmlFor="lname">Location*</label>
-                        <input onChange={(e) => setEventLocation(e.target.value)}  value={eventLocation} className="create-event-input" type="text" id="lname" name="lastname" placeholder="Let attendees know where the event will be.." />
+                        <input onChange={(e) => setEventLocation(e.target.value)} value={eventLocation} className="create-event-input" type="text" id="lname" name="lastname" placeholder="Let attendees know where the event will be.." />
                     </div>
                     <div className="sub-cat-location">
                         <label htmlFor="lname">Price*</label>
@@ -79,19 +86,19 @@ export default function AddEvent() {
                 <div className="date-time">
                     <div className="date">
                         <label htmlFor="lname">Start Date*</label>
-                        <input onChange={(e) => setStartDate(e.target.value)} value={startDate} className="create-event-input" type="date"/>
+                        <input onChange={(e) => setStartDate(e.target.value)} value={startDate} className="create-event-input" type="date" />
                     </div>
                     <div className="date">
                         <label htmlFor="lname">End Date*</label>
-                        <input onChange={(e) => setEndDate(e.target.value)} value={endDate} className="create-event-input" type="date"/>
+                        <input onChange={(e) => setEndDate(e.target.value)} value={endDate} className="create-event-input" type="date" />
                     </div>
                     <div className="time">
                         <label htmlFor="lname">Start Time*</label>
-                        <input onChange={(e) => setStartTime(e.target.value)} value={startTime} className="create-event-input" type="time"/>
+                        <input onChange={(e) => setStartTime(e.target.value)} value={startTime} className="create-event-input" type="time" />
                     </div>
                     <div className="time">
                         <label htmlFor="lname">End Time*</label>
-                        <input onChange={(e) => setEndTime(e.target.value)} value={endTime} className="create-event-input" type="time"/>
+                        <input onChange={(e) => setEndTime(e.target.value)} value={endTime} className="create-event-input" type="time" />
                     </div>
                 </div>
 

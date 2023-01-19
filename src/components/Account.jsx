@@ -10,8 +10,10 @@ export default function Account({ user }) {
         email: user.email,
         phone_number: user.phone_number,
         billing_address: user.billing_address,
-        first_name: user.first_name,
-        last_name: user.last_name,
+        card_number: user.card_number,
+        cvv: user.cvv,
+        city: user.city,
+        expiry_date: user.expiry_date
     })
 
     // handling input change 
@@ -35,7 +37,6 @@ export default function Account({ user }) {
 
     function handleFormSubmit(e) {
         e.preventDefault()
-        // console.log(formData)
         fetch(`https://event-plug.onrender.com/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -84,21 +85,21 @@ export default function Account({ user }) {
                                 <div className="col-50">
                                     <h2>Billing Information</h2>
                                     <label htmlFor="ccnum">Credit card number</label>
-                                    <input type="text" className="input-text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
+                                    <input type="text" className="input-text" id="ccnum" name='card_number' onChange={handleInputChange} value={formData.card_number} placeholder="1111-2222-3333-4444" />
                                     <div className="email-address-row">
                                         <div className="email-50">
                                             <label htmlFor="expyear">Expiry</label>
-                                            <input type="text" className="input-text" id="expyear" name="expyear" placeholder="12/24" />
+                                            <input type="text" className="input-text" id="expyear" name='expiry_date' onChange={handleInputChange} value={formData.expiry_date} placeholder="12/24" />
                                         </div>
                                         <div className="email-50">
                                             <label htmlFor="cvv">CVV</label>
-                                            <input type="text" className="input-text" id="cvv" name="cvv" placeholder="352" />
+                                            <input type="text" className="input-text" id="cvv" name='cvv' onChange={handleInputChange} value={formData.cvv} placeholder="352" />
                                         </div>
                                     </div>
                                     <div className="email-address-row">
                                         <div className="email-50">
                                             <label htmlFor="expyear">City</label>
-                                            <input type="text" className="input-text" id="expyear" name="city" placeholder="e.g Thika" />
+                                            <input type="text" className="input-text" id="expyear" name='city' onChange={handleInputChange} value={formData.city} placeholder="e.g Thika" />
                                         </div>
                                         <div className="email-50">
                                             <label htmlFor="cvv">Address</label>
@@ -106,12 +107,10 @@ export default function Account({ user }) {
                                         </div>
                                     </div>
                                 </div>
+                                <button type="submit" className='btn'>Save</button>
                             </div>
                         </form>
                     </div>
-                </div>
-                <div className="btn-column-account">
-                    <button className="btn" >Save</button>
                 </div>
             </div>
         </div>

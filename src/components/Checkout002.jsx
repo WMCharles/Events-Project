@@ -33,7 +33,7 @@ export default function Checkout002({ handleClose, event, user }) {
     function handlePay(e) {
         e.preventDefault();
         console.log(formData)
-        fetch('https://e32e-41-212-11-139.eu.ngrok.io/stkpush', {
+        fetch('https://2c97-41-212-11-139.eu.ngrok.io/stkpush', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)

@@ -119,3 +119,9 @@
     padding: 10px 20px;
     cursor: pointer;
 }
+
+@media (max-width: 858px) {
+    .search-bar {
+        width: 40%;
+    }
+}

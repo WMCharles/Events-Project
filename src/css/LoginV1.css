@@ -63,3 +63,13 @@
     font-size: 9px;
     height: 13px;
 }
+
+@media (max-width: 858px) {
+    .reg-container {
+        width: 60%;
+    }
+    .reg-container > form {
+        width: 100%;
+        /* padding: 10px; */
+    }
+}

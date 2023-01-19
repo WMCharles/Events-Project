@@ -15,3 +15,12 @@
 .copyright {
     text-align: center;
 }
+
+@media (max-width: 858px) {
+    .footer-details {
+        grid-template-columns: auto;
+    }
+    .footer-details div {
+        margin-top: 1em;
+    }
+}

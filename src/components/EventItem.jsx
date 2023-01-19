@@ -76,9 +76,14 @@ export default function EventItem({ event, handleAddToLikes, user, url, togglePo
             </div>
 
             {user.role === 'Admin' &&
-                <div className="delete">
-                    <button className='delete-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
-                </div>
+                <>
+                    <div className="delete">
+                        <button className='delete-btn' onClick={() => { handleDelete(event); navigate(`/`) }}>Delete Event</button>
+                    </div>
+                    <hr />
+                    <h3>Other Details</h3>
+                    <p><span style={{ fontWeight: "bold" }}>Total Reservations:</span> {event.reservations.length}</p>
+                </>
             }
 
             {user !== null && user.id === event.user.id &&
@@ -94,7 +99,7 @@ export default function EventItem({ event, handleAddToLikes, user, url, togglePo
                     </div>
                     <hr />
                     <h3>Other Details</h3>
-                    <p><span style={{fontWeight: "bold"}}>Total Reservations:</span> {event.reservations.length}</p>
+                    <p><span style={{ fontWeight: "bold" }}>Total Reservations:</span> {event.reservations.length}</p>
                 </>
             }
         </div>

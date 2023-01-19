@@ -40,7 +40,7 @@ function App() {
 
 
   // authentication
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('null');
   useEffect(() => {
     // auto-login
     fetch("https://event-plug.onrender.com/me").then((r) => {

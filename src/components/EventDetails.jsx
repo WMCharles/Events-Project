@@ -74,7 +74,7 @@ export default function EventDetails({ addToLikes, user }) {
 
     return (
         <>
-            {isOpen && <Checkout002 handleClose={togglePopup} event={event}/>}
+            {isOpen && <Checkout002 handleClose={togglePopup} event={event} user={user}/>}
             {/* <EventItem user={user}
                 handleAddToLikes={handleAddToLikes}
                 event={event}

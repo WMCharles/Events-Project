@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../css/Checkout002.css'
 
-export default function Checkout002({ handleClose, event }) {
+export default function Checkout002({ handleClose, event, user }) {
 
     const [formData, setFormData] = useState({
         phoneNumber: "",
@@ -16,18 +16,34 @@ export default function Checkout002({ handleClose, event }) {
         });
     }
 
+    function reserve() {
+        fetch('https://event-plug.onrender.com/reservations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                user_id: user.id,
+                event_id: event.id
+            })
+        })
+            .then((response) => response.json())
+    }
+
 
 
     function handlePay(e) {
         e.preventDefault();
+        console.log(formData)
         fetch('https://e32e-41-212-11-139.eu.ngrok.io/stkpush', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                phoneNumber: '254795289737',
-                amount: "10000"
-            })
-
+            body: JSON.stringify(formData)
+        }).then((res) => {
+            if (res.ok) {
+                alert('Successfully Bought Tickets.');
+                reserve();
+            } else {
+                alert('Something went wrong')
+            }
         })
     }
 
@@ -51,7 +67,7 @@ export default function Checkout002({ handleClose, event }) {
                                     type="text"
                                     className="form-control"
                                     placeholder="e.g 25471234567"
-                                    name='phoneNumber' onChange={handleInputChange} value={formData.phoneNumber} 
+                                    name='phoneNumber' onChange={handleInputChange} value={formData.phoneNumber}
                                 />
                                 <div className="form-text">
                                     We'll never share your phone number with anyone else.
